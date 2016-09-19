@@ -13,6 +13,9 @@ fi
 brew update
 show_status "Updating homebrew" "$?"
 
+# The console threw a warning about Xcode CLI. Install it
+xcode-select --install
+
 set +e
 
 echo "Installing coreutils, findutils, bash v4 and grep (dupe)"

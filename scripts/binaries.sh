@@ -5,6 +5,7 @@ echo "Going to install binaries."
 # First, install brew for installing new packages
 if [ ! $(which brew) ]    # Check if is already installed
 then
+  echo "Installing brew..."
   $(which ruby) -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 

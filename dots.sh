@@ -6,3 +6,5 @@ set -eu   # Make that the errors in every script stop the execution of the gener
 # First of all, install brew and some other required installers
 sh scripts/binaries.sh
 # I think the first should be install ZSH and the plugin managers, in this case, we'll use
+# zPlug, can be found in: https://github.com/zplug/zplug
+sh scripts/install_zsh.sh

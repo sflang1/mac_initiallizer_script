@@ -52,7 +52,9 @@ insert_line_into_file_as_sudo(){
   # Be careful, this command can mess with the permissions of the files
   line=$1
   file=$2
-  sudo sh -c "grep -q "$line" "$file" || echo "$line" >> "$file""
+  if [-z $(grep -q "$line" "$file") ]; then
+    sudo echo "$line" >> "$file"
+  fi
 }
 
 main "$@"

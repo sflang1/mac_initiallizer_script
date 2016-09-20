@@ -39,8 +39,8 @@ main(){
     echo "ZSH is not the default console. Change it."
     chsh -s $(which zsh)
   fi
-  # Source the changes in ~/.zshrc
-  source ~/.zshrc
+  # Source the changes in ~/.zshrc. Run with zsh console.
+  zsh -c source ~/.zshrc
 }
 
 insert_line_into_file(){

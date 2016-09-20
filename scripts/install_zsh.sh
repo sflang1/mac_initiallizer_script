@@ -14,6 +14,9 @@ main(){
 
   # Insert line by line configurations to the zsh, if not existing
   # insert_line_into_file "plugins=(git bundler colorized brew zeus gem rails ruby npm node nano nanoc history-substring-search)" ~/.zshrc
+  if [[ ! -a ~/.zshrc]]; then
+    touch ~/.zshrc
+  fi
   insert_line_into_file "export ZPLUG_HOME=/usr/local/opt/zplug" ~/.zshrc
   insert_line_into_file "source \$ZPLUG_HOME/init.zsh" ~/.zshrc
   insert_line_into_file "# Zplug plugins" ~/.zshrc

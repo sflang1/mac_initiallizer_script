@@ -35,9 +35,10 @@ main(){
   insert_line_into_file "zplug install" ~/.zshrc
 
   # Set as default the ZSH console if is not already set
-  if [ $(echo $0) == 'zsh' ]; then
+  if [[ $(echo $0) != '-zsh' ]]; then
     zsh
     chsh -s $(which zsh)
+    exit
   fi
   # Source the changes in ~/.zshrc
   source ~/.zshrc

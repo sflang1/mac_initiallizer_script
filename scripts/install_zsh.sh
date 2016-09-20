@@ -32,7 +32,7 @@ main(){
   insert_line_into_file "zplug \"plugins/nano\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/nanoc\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/history-substring-search\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"zsh-users/zsh-syntax-highlighting\", nice: 15" ~/.zshrc
+  insert_line_into_file "zplug \"zsh-users/zsh-syntax-highlighting\", nice:15" ~/.zshrc
   insert_line_into_file "zplug install" ~/.zshrc
 
   # Source the changes in ~/.zshrc

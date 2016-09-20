@@ -10,7 +10,7 @@ main(){
   # Update the zsh console manually to run zsh
   # First of all, add to the allowed shells
   insert_line_into_file_as_sudo $(which zsh) /etc/shells
-  chsh -s $(which zsh)
+  sudo chsh -s $(which zsh)
 
   # Insert line by line configurations to the zsh, if not existing
   # insert_line_into_file "plugins=(git bundler colorized brew zeus gem rails ruby npm node nano nanoc history-substring-search)" ~/.zshrc

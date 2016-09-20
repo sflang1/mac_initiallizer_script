@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+source $SHELL_LIBRARY_PATH/modules/avoidDoubleImport.sh
+source $SHELL_LIBRARY_PATH/utils/display.sh
+
+function message__disableAutoEmoji {
+  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false 
+  show_status "Dissable automatic emoji substitution (i.e. use plain text smileys)" "$?"
+}
+
+function message__disableSmartQuotes {
+  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false 
+  show_status "Disable smart quotes as it's annoying for messages that contain code" "$?"
+}
+
+function message__disableSpellChecking {
+  defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false 
+  show_status "Disable continuous spell checking" "$?"
+}

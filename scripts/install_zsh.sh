@@ -10,7 +10,6 @@ main(){
   # Update the zsh console manually to run zsh
   # First of all, add to the allowed shells
   insert_line_into_file_as_sudo $(which zsh) /etc/shells
-  sudo chsh -s $(which zsh)
 
   # Insert line by line configurations to the zsh, if not existing
   if [[ ! -a ~/.zshrc ]]; then
@@ -36,7 +35,9 @@ main(){
   insert_line_into_file "zplug install" ~/.zshrc
 
   # Source the changes in ~/.zshrc
-  zsh source ~/.zshrc
+  zsh
+  chsh -s $(which zsh)
+  source ~/.zshrc
 }
 
 insert_line_into_file(){

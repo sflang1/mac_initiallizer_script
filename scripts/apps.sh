@@ -89,6 +89,7 @@ atom=(
   # easy-motion                 # Quickly navigate among words in the same line
   # editor-stats                # Display statistics about keyboard and mouse usage
   fancy-new-file                # Allows to create a file inside a folder directly
+  git-diff                      # Shows in Atom which lines have been added, edited or modified.
   git-history                   # Shows the different versions of a file
   image-view                    # Displays images in the editor
   # inc-dec-value               # Increases, decreases a number, capitalizes, lowercases strings with the alt+up, alt+down shortcut
@@ -112,6 +113,8 @@ atom=(
   linter                        # In-situ debugging of errors
   merge-conflicts               # Visualization for the merge conflicts
   pigments                      # Colors the RGB in code
+  # git-time-machine            # Shows a visual representation of the dates when the commits are made
+  # git-plus                    # Allows to commit, add, etc. from Atom, without shell
 )
 
 # Specify the location of the apps

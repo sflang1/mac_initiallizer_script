@@ -40,7 +40,7 @@ main(){
     chsh -s $(which zsh)
   fi
   # Source the changes in ~/.zshrc. Run with zsh console.
-  zsh -c source ~/.zshrc
+  zsh -c 'source ~/.zshrc'
 }
 
 insert_line_into_file(){

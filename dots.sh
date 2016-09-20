@@ -10,6 +10,8 @@ sh scripts/binaries.sh
 # I think the first should be install ZSH and the plugin managers, in this case, we'll use
 # zPlug, can be found in: https://github.com/zplug/zplug
 sh scripts/install_zsh.sh
+# Add the ssh-key to the system
+sh scripts/ssh_add.sh
 # Install some apps through Brew. This includes chrome, skype, atom, etc.
 sh scripts/apps.sh
 # Do some configurations for security checks

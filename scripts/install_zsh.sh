@@ -36,9 +36,8 @@ main(){
 
   # Set as default the ZSH console if is not already set
   if [[ $(echo $0) != '-zsh' ]]; then
-    zsh
+    echo "ZSH is not the default console. Change it."
     chsh -s $(which zsh)
-    exit
   fi
   # Source the changes in ~/.zshrc
   source ~/.zshrc

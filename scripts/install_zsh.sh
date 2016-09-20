@@ -34,9 +34,12 @@ main(){
   insert_line_into_file "zplug \"zsh-users/zsh-syntax-highlighting\", nice:15" ~/.zshrc
   insert_line_into_file "zplug install" ~/.zshrc
 
+  # Set as default the ZSH console if is not already set
+  if [ $(echo $0) == 'zsh' ]; then
+    zsh
+    chsh -s $(which zsh)
+  fi
   # Source the changes in ~/.zshrc
-  zsh
-  chsh -s $(which zsh)
   source ~/.zshrc
 }
 

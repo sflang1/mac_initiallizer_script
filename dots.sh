@@ -18,3 +18,12 @@ sh scripts/apps.sh
 # sh scripts/security.sh
 # Setting the Ruby environment
 zsh scripts/rbenv.sh
+read -p "Most of the scripts run require a restart of the system. Do you wish to restart now? [y/n] " confirmation
+case $confirmation in
+  [Yy]* )
+    sudo shutdown -r now
+    ;;
+  [Nn]* )
+    echo "Remember to restart your PC!."
+    ;;
+esac

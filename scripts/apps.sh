@@ -88,14 +88,14 @@ atom=(
   css-comb                      # Auto adjusts CSS files. Shortcut: Ctrl Alt C
   # easy-motion                 # Quickly navigate among words in the same line
   # editor-stats                # Display statistics about keyboard and mouse usage
-  fancy-new-file                # Allows to create a file inside a folder directly
-  git-diff                      # Shows in Atom which lines have been added, edited or modified.
+  # fancy-new-file              # Allows to create a file inside a folder directly. Unavailable for atom 1.10
+  # git-diff                    # Shows in Atom which lines have been added, edited or modified. Already included in the bundle
   git-history                   # Shows the different versions of a file
-  image-view                    # Displays images in the editor
+  # image-view                  # Displays images in the editor. Bundled with atom.
   # inc-dec-value               # Increases, decreases a number, capitalizes, lowercases strings with the alt+up, alt+down shortcut
   # key-peek                    # Keybinding resolving
   # language-jade               # Language grammar for Jade programming
-  markdown-preview              # Markdown preview (for Readme.md, for example). Activate with ctrl+shift+m
+  # markdown-preview            # Markdown preview (for Readme.md, for example). Activate with ctrl+shift+m. Bundled with atom
   # neutron-ui                  # No info found
   npm-install                   # Automatically installs and save Node packages not already included
   react                         # React.js syntax support
@@ -166,9 +166,7 @@ main() {
 
   # install atom plugins
   echo "installing atom plugins..."
-  set +e     # Allow that if a package fails, go on with the next packages
   apm install ${atom[@]}
-
   # homebrew cask link with alfred
   alfred
   cleanup

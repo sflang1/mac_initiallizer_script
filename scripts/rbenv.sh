@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env zsh
 main(){
   # Install Rubyenv for managing the Ruby versions
   # First of all, check if Git is installed
@@ -61,7 +61,7 @@ main(){
 insert_line_into_file(){
   line=$1
   file=$2
-  grep -q "$line" "$file" || echo -e "$line" >> "$file"
+  grep -q "$line" "$file" || echo "$line" >> "$file"
 }
 
 

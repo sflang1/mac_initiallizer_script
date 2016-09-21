@@ -17,4 +17,4 @@ sh scripts/apps.sh
 # Do some configurations for security checks
 # sh scripts/security.sh
 # Setting the Ruby environment
-sh scripts/rbenv.sh
+zsh scripts/rbenv.sh

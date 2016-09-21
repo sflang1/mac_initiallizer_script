@@ -18,29 +18,29 @@ main(){
   insert_line_into_file "export ZPLUG_HOME=/usr/local/opt/zplug" ~/.zshrc
   insert_line_into_file "source \$ZPLUG_HOME/init.zsh" ~/.zshrc
   insert_line_into_file "# Zplug plugins" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/git\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/bundler\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/colorized\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/brew\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/zeus\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/bundler\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/colorize\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/fasd\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/gem\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/rails\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/ruby\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/git\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/history-substring-search\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/nanoc\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/npm\", from:oh-my-zsh" ~/.zshrc
   insert_line_into_file "zplug \"plugins/node\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/nano\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/nanoc\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/history-substring-search\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/rails\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/ruby\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"plugins/zeus\", from:oh-my-zsh" ~/.zshrc
+  insert_line_into_file "zplug \"zsh-users/zsh-autosuggestions\", nice:15" ~/.zshrc
   insert_line_into_file "zplug \"zsh-users/zsh-syntax-highlighting\", nice:15" ~/.zshrc
   insert_line_into_file "zplug install" ~/.zshrc
+  insert_line_into_file "zplug load --verbose" ~/.zshrc
 
   # Set as default the ZSH console if is not already set
   if [[ $(echo $0) != '-zsh' ]]; then
     echo "ZSH is not the default console. Change it."
     chsh -s $(which zsh)
   fi
-  # Source the changes in ~/.zshrc. Run with zsh console.
-  zsh -c 'source ~/.zshrc'
 }
 
 insert_line_into_file(){

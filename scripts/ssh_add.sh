@@ -83,7 +83,7 @@ create_ssh(){
   if [[ $(eval "$(ssh-agent -s)") == "Agent pid"* ]]; then
     # All the ssh keys will be stored in the directory ~/.ssh. Move the key to this directory
     # First of all, check that the ssh directory is created
-    if [[ !-d ~/.ssh ]]; then
+    if [[ ! -d ~/.ssh ]]; then
       mkdir ~/.ssh
     fi
     # First check if the key is already there. If it is, ask for overwrite permission

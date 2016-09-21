@@ -53,7 +53,7 @@ insert_line_into_file_as_sudo(){
   line=$1
   file=$2
   if [ -z $(grep "$line" "$file") ]; then
-    sudo -c "echo "$line" >> "$file""
+    sudo sh -c "echo "$line" >> "$file""
   fi
 }
 

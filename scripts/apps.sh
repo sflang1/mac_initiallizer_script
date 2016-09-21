@@ -166,6 +166,7 @@ main() {
 
   # install atom plugins
   echo "installing atom plugins..."
+  set +e     # Allow that if a package fails, go on with the next packages
   apm install ${atom[@]}
 
   # homebrew cask link with alfred

@@ -168,7 +168,7 @@ main() {
   echo "installing atom plugins..."
   apm install ${atom[@]}
   # homebrew cask link with alfred
-  alfred
+  # alfred  I can't find a reference to this command in the current documentation. Maybe it was deprecated
   cleanup
 }
 

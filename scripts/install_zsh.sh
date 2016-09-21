@@ -1,4 +1,4 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 main(){
   # The first step is to install zsh.

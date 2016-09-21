@@ -98,7 +98,7 @@ atom=(
   # markdown-preview            # Markdown preview (for Readme.md, for example). Activate with ctrl+shift+m. Bundled with atom
   # neutron-ui                  # No info found
   npm-install                   # Automatically installs and save Node packages not already included
-  react                         # React.js syntax support
+  # react                       # React.js syntax support. Incompatible with language-babel
   # vim-mode                    # Vim modal control for Atom
   zentabs                       # Set a maximum of opened tabs
   # Included in the doc

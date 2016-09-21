@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#!/usr/bin/env zsh
 main(){
   # Install Rubyenv for managing the Ruby versions
   # First of all, check if Git is installed
@@ -16,7 +16,8 @@ main(){
     # Install a performance extension (specified in https://github.com/rbenv/rbenv)
     cd ~/.rbenv && src/configure && make -C src
     # Add the rbenv to the .zshrc file
-    insert_line_into_file '# Rbenv configuration\nexport PATH="$HOME/.rbenv/bin:$PATH"' ~/.zshrc
+    insert_line_into_file '# Rbenv configuration' ~/.zshrc
+    insert_line_into_file 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.zshrc
     insert_line_into_file '~/.rbenv/bin/rbenv init' ~/.zshrc
     # Ruby build installation, for using the command rbenv install
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -30,8 +31,9 @@ main(){
     # Install a performance extension (specified in https://github.com/rbenv/rbenv)
     cd ~/.nodenv && src/configure && make -C src
     # Add the nodenv to the .zshrc file
-    insert_line_into_file '#Nodenv configuration\nexport PATH="$HOME/.nodenv/bin:$PATH"' ~/.zshrc
-    insert_line_into_file "eval \"$(nodenv init -)\"" ~/.zshrc
+    insert_line_into_file '#Nodenv configuration' ~/.zshrc
+    insert_line_into_file 'export PATH="$HOME/.nodenv/bin:$PATH"' ~/.zshrc
+    insert_line_into_file "eval \"\$(nodenv init -)\"" ~/.zshrc
     # Node build installation, for using the command rbenv install
     git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
   fi
@@ -43,19 +45,19 @@ main(){
     git clone -b v0.0.10 https://github.com/boxen/phantomenv.git ~/.phantomenv
     # Add the phantomenv to the .zshrc file
     insert_line_into_file '#phantomenv configuration\nexport PATH="$HOME/.phantomenv/bin:$PATH"' ~/.zshrc
-    insert_line_into_file "eval \"$(phantomenv init -)\"" ~/.zshrc
+    insert_line_into_file "eval \"\$(phantomenv init -)\"" ~/.zshrc
   fi
 
   source ~/.zshrc
 
   # Install a ruby default version (Mac has his own, in any case)
-  rbenv install 2.3.1
-  # Set this version as global
-  rbenv global 2.3.1
-  # Install bundler
-  gem install bundler
-  # Install rails
-  gem install rails
+  # rbenv install 2.3.1
+  # # Set this version as global
+  # rbenv global 2.3.1
+  # # Install bundler
+  # gem install bundler
+  # # Install rails
+  # gem install rails
 }
 
 insert_line_into_file(){

@@ -11,30 +11,9 @@ main(){
   # First of all, add to the allowed shells
   insert_line_into_file_as_sudo $(which zsh) /etc/shells
 
-  # Insert line by line configurations to the zsh, if not existing
-  if [[ ! -a ~/.zshrc ]]; then
-    touch ~/.zshrc
-  fi
-  insert_line_into_file "export ZPLUG_HOME=/usr/local/opt/zplug" ~/.zshrc
-  insert_line_into_file "source \$ZPLUG_HOME/init.zsh" ~/.zshrc
-  insert_line_into_file "# Zplug plugins" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/brew\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/bundler\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/colorize\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/fasd\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/gem\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/git\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/history-substring-search\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/nanoc\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/npm\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/node\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/rails\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/ruby\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"plugins/zeus\", from:oh-my-zsh" ~/.zshrc
-  insert_line_into_file "zplug \"zsh-users/zsh-autosuggestions\", nice:15" ~/.zshrc
-  insert_line_into_file "zplug \"zsh-users/zsh-syntax-highlighting\", nice:15" ~/.zshrc
-  insert_line_into_file "zplug install" ~/.zshrc
-  insert_line_into_file "zplug load --verbose" ~/.zshrc
+  # if [[ ! -a ~/.zshrc ]]; then   # There will be a symlink after the installation process, and the file must not exist
+  #   touch ~/.zshrc
+  # fi
 
   # Set as default the ZSH console if is not already set
   if [[ $(echo $0) != '-zsh' ]]; then

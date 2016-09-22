@@ -15,10 +15,6 @@ main(){
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     # Install a performance extension (specified in https://github.com/rbenv/rbenv)
     cd ~/.rbenv && src/configure && make -C src
-    # Add the rbenv to the .zshrc file
-    insert_line_into_file '# Rbenv configuration' ~/.zshrc
-    insert_line_into_file 'export PATH="$HOME/.rbenv/bin:$PATH"' ~/.zshrc
-    insert_line_into_file '~/.rbenv/bin/rbenv init' ~/.zshrc
     # Ruby build installation, for using the command rbenv install
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   fi
@@ -30,10 +26,6 @@ main(){
     git clone https://github.com/nodenv/nodenv.git ~/.nodenv
     # Install a performance extension (specified in https://github.com/rbenv/rbenv)
     cd ~/.nodenv && src/configure && make -C src
-    # Add the nodenv to the .zshrc file
-    insert_line_into_file '#Nodenv configuration' ~/.zshrc
-    insert_line_into_file 'export PATH="$HOME/.nodenv/bin:$PATH"' ~/.zshrc
-    insert_line_into_file "eval \"\$(nodenv init -)\"" ~/.zshrc
     # Node build installation, for using the command rbenv install
     git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
   fi
@@ -43,21 +35,23 @@ main(){
   if [ -z $(which phantomenv) ]; then
     # Install phantomenv
     git clone -b v0.0.10 https://github.com/boxen/phantomenv.git ~/.phantomenv
-    # Add the phantomenv to the .zshrc file
-    insert_line_into_file '#phantomenv configuration\nexport PATH="$HOME/.phantomenv/bin:$PATH"' ~/.zshrc
-    insert_line_into_file "eval \"\$(phantomenv init -)\"" ~/.zshrc
   fi
 
-  source ~/.zshrc
+  # First of all, move all the templates in this script to a directory called dotfiles
+  mkdir ~/dotfiles
+  cp templates/* ~/dotfiles     # Copy the contents to the newly created directory
+  git init ~/dotfiles           # Initiallize a git repo in this directory
+  # As stated in this guide (https://codingkilledthecat.wordpress.com/2012/08/08/git-dotfiles-and-hardlinks/),
+  # it's better to link the files from inside the repo outside of it.
+  cd ~
+  # Do a symlink between every file in the dotfiles directory and the home directory
+  for f in dotfiles/*
+    ln -s $f ~/$(basename $f)
+  do
+    # Create a symlink between this file and the file in
+  done
 
-  # Install a ruby default version (Mac has his own, in any case)
-  # rbenv install 2.3.1
-  # # Set this version as global
-  # rbenv global 2.3.1
-  # # Install bundler
-  # gem install bundler
-  # # Install rails
-  # gem install rails
+  source ~/.zshrc
 }
 
 insert_line_into_file(){

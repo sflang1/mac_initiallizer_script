@@ -21,7 +21,12 @@ zplug "zsh-users/zsh-autosuggestions", nice:15
 zplug "zsh-users/zsh-syntax-highlighting", nice:15
 
 # Install missing plugins
-zplug install ~/.zshrc
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+      echo; zplug install
+  fi
+fi
 
 # Load the plugins in the terminal
 zplug load --verbose

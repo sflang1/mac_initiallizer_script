@@ -17,7 +17,9 @@ sh scripts/apps.sh
 # Do some configurations for security checks
 # sh scripts/security.sh
 # Setting the Ruby environment
-zsh scripts/rbenv.sh
+sh scripts/rbenv.sh
+# Create the dotfiles directory and run the necessary tasks
+zsh scripts/dotfiles_configuration.sh
 
 # Install a ruby default version (Mac has his own, in any case)
 # rbenv install 2.3.1

@@ -4,7 +4,8 @@ main()
   # First of all, move all the templates in this script to a directory called dotfiles
   mkdir ~/dotfiles
   cp $script_exec_dir/../templates/.[^.]* ~/dotfiles     # Copy the contents to the newly created directory
-  git init ~/dotfiles           # Initiallize a git repo in this directory
+  cd ~/dotfiles           # Initiallize a git repo in this directory
+  git init
   # As stated in this guide (https://codingkilledthecat.wordpress.com/2012/08/08/git-dotfiles-and-hardlinks/),
   # it's better to link the files from inside the repo outside of it.
   cd ~

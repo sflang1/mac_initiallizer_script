@@ -2,6 +2,8 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
+# Zplug themes
+zplug "themes/robbyrussell", from:oh-my-zsh
 
 # Zplug plugins
 zplug "plugins/brew", from:oh-my-zsh

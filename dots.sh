@@ -3,6 +3,10 @@
 # Created by Sebastián Landínez, based on https://github.com/gato-omega/my-dots
 set -eu   # Make that the errors in every script stop the execution of the general script.
 
+export dirname=$(dirname $(realpath $0))
+export lib="$dirname/lib"
+export SHELL_LIBRARY_PATH="$dirname/lib"
+
 # Put some defaults related to the environment
 # sh scripts/defaults.sh
 # First of all, install brew and some other required installers

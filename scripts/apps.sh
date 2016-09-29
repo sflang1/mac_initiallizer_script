@@ -110,6 +110,7 @@ atom=(
   highlight-line                # Highlights the current line.
   highlight-selected            # Double clicking a word will highlight it in all the file
   language-babel                # Language grammar for ESX2016 and JSX
+  language-haml                 # Language grammar for HAML
   linter                        # In-situ debugging of errors
   merge-conflicts               # Visualization for the merge conflicts
   pigments                      # Colors the RGB in code

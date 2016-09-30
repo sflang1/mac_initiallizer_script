@@ -34,7 +34,6 @@ main(){
     # Install phantomenv
     git clone -b v0.0.10 https://github.com/boxen/phantomenv.git ~/.phantomenv
   fi
-}
 
   ################################ PGVM INSTALLATION ##################################
   # Check if pgvm is installed
@@ -42,7 +41,7 @@ main(){
     # Install pgvm
     curl -s -L https://raw.github.com/guedes/pgvm/master/bin/pgvm-self-install | bash
   fi
-  }
+}
 
 insert_line_into_file(){
   line=$1

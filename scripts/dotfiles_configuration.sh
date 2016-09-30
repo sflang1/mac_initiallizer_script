@@ -15,7 +15,8 @@ main()
     # Create a symlink between this file and the file in the HOME directory
     ln -s $f ~/$(basename $f)
   done
-
+  # For some reason, a git repo is created at ~ directory. Remove it:
+  rm ~/.git
   source ~/.zshrc
 
   # Node build installation, for using the command nodenv install

@@ -47,3 +47,14 @@ eval "$(phantomenv init -)"
 
 # pgvm configuration
 source ~/.pgvm/pgvm_env
+
+# History substring search configuration
+zmodload zsh/terminfo
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down    # Still not working.
+
+# Share the terminal history. SAVEHIST is the number of lines to save, so set it really high.
+export SAVEHIST=200
+export HISTFILE=~/.zsh_history
+setopt inc_append_history
+setopt share_history

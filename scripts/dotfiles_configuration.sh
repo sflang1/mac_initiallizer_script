@@ -18,6 +18,8 @@ main()
   # For some reason, a git repo is created at ~ directory. Remove it:
   rm ~/.git
   source ~/.zshrc
+  # Some files created are created without permissions required. Add this line to modify this permissions
+  compaudit | xargs chmod g-w
 
   # Node build installation, for using the command nodenv install
   git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build

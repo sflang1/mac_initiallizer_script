@@ -52,7 +52,7 @@ binaries=(
   git                 # git
   hub                 # git+hub (from Github)
   fasd                # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v, https://github.com/clvv/fasd
-  postgres            # Postgres
+  # postgres            # Postgres
   # phantomenv          # PhantomJS version manager (rbenv for phantomjs) # better to just enabled on its own
   jenv                # java version manager (rbenv for java) [javas must be manually added]
   qt                  # qt lib
@@ -82,4 +82,3 @@ set -e # revert back to errors aborting the entire script
 brew cleanup
 
 exit 0
-

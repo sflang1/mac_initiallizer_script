@@ -44,3 +44,6 @@ eval "$(nodenv init -)"
 # Phantomenv configuration
 export PATH="$HOME/.phantomenv/bin:$PATH"
 eval "$(phantomenv init -)"
+
+# pgvm configuration
+source ~/.pgvm/pgvm_env

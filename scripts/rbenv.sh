@@ -8,7 +8,7 @@ main(){
   fi
 
 
-  ################################ RBENV INSTALLATION #################################
+  ################################ RBENV INSTALLATION ################################
   # Rbenv not installed
   if [ -z $(which rbenv) ]; then
     # Install rbenv
@@ -35,6 +35,14 @@ main(){
     git clone -b v0.0.10 https://github.com/boxen/phantomenv.git ~/.phantomenv
   fi
 }
+
+  ################################ PGVM INSTALLATION ##################################
+  # Check if pgvm is installed
+  if [ -z $(which pgvm) ]; then
+    # Install pgvm
+    curl -s -L https://raw.github.com/guedes/pgvm/master/bin/pgvm-self-install | bash
+  fi
+  }
 
 insert_line_into_file(){
   line=$1

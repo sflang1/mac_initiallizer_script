@@ -68,6 +68,7 @@ apps=(
   screenflow          # Video editing software http://telestream.net/screenflow/overview.htm
   gimp               # GIMP, Image editing software
   # rescuetime       # Rescue Time https://www.rescuetime.com
+  docker             # Docker
 )
 
 # fonts

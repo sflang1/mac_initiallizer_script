@@ -50,11 +50,12 @@ source ~/.pgvm/pgvm_env
 
 # History substring search configuration
 zmodload zsh/terminfo
-bindkey "$terminfo[cuu1]" history-substring-search-up
-bindkey "$terminfo[cud1]" history-substring-search-down    # Still not working.
+# For Mac OSX 10.9
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 # Share the terminal history. SAVEHIST is the number of lines to save, so set it really high.
-export SAVEHIST=200
+export SAVEHIST=200000
 export HISTFILE=~/.zsh_history
 setopt inc_append_history
 setopt share_history

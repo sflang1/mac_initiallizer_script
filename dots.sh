@@ -15,7 +15,12 @@ sh scripts/defaults.sh
 # zPlug, can be found in: https://github.com/zplug/zplug
 sh scripts/install_zsh.sh
 # Add the ssh-key to the system
-sh scripts/ssh_add.sh
+read -p "Do you want to create an SSH key for this PC? [y/n] " confirmation
+case $confirmation in
+  [Yy]* )
+    sh scripts/ssh_add.sh
+    ;;
+esac
 # Install some apps through Brew. This includes chrome, skype, atom, etc.
 sh scripts/apps.sh
 # Do some configurations for security checks

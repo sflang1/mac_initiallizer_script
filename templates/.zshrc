@@ -48,6 +48,10 @@ eval "$(phantomenv init -)"
 # pgvm configuration
 source ~/.pgvm/pgvm_env
 
+# DVM configuration
+source ~/.dvm/dvm.sh
+[[ -r $DVM_DIR/bash_completion ]] && . $DVM_DIR/bash_completion
+
 # History substring search configuration
 zmodload zsh/terminfo
 # For Mac OSX 10.9

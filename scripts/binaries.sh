@@ -52,7 +52,6 @@ binaries=(
   git                 # git
   hub                 # git+hub (from Github)
   fasd                # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v, https://github.com/clvv/fasd
-  dvm                 # Docker Version Manager. 
   # postgres            # Postgres
   # phantomenv          # PhantomJS version manager (rbenv for phantomjs) # better to just enabled on its own
   jenv                # java version manager (rbenv for java) [javas must be manually added]
@@ -78,7 +77,8 @@ set +e # If already installed, non-zero status error is reported, skip that
 brew install ${binaries[@]}
 show_status "Installing brew binaries" "$?"
 set -e # revert back to errors aborting the entire script
-
+# Installing DVM through cURL. It looks like brew recipe is not working well.
+curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
 # Remove outdated versions from the cellar
 brew cleanup
 

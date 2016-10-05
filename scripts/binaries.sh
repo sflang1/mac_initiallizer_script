@@ -34,6 +34,7 @@ show_status "Installing Bash" "$?"
 
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
+brew tap homebrew/versions
 brew install homebrew/dupes/grep
 show_status "Installing dupes' grep" "$?"
 

@@ -45,6 +45,10 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.phantomenv/bin:$PATH"
 eval "$(phantomenv init -)"
 
+# Jenv configuration
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # pgvm configuration
 source ~/.pgvm/pgvm_env
 

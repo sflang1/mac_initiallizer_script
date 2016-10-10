@@ -24,7 +24,7 @@ zplug "zsh-users/zsh-autosuggestions", nice:15
 zplug "zsh-users/zsh-syntax-highlighting", nice:15
 
 # Installing Oh-my-zsh lib
-zplug "lib", from:oh-my-zsh
+zplug "lib/*", from:oh-my-zsh
 
 # Install missing plugins
 if ! zplug check --verbose; then

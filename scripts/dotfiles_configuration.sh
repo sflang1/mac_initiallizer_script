@@ -2,10 +2,21 @@
 main()
 {
   # First of all, move all the templates in this script to a directory called dotfiles
-  mkdir ~/dotfiles
+  if [[ ! -d ~/dotfiles ]]; then
+    mkdir ~/dotfiles
+  fi
+  for f in $script_exec_dir/../templates/.[^.]*
+  do
+    # Copy idempotently the files from the templates directory to the dotfiles
+    if [[ ! -e ~/dotfiles/$(basename $f) ]]; then
+      cp $(basename $f) ~/dotfiles
+    fi
+  done
   cp $script_exec_dir/../templates/.[^.]* ~/dotfiles     # Copy the contents to the newly created directory
   cd ~/dotfiles           # Initiallize a git repo in this directory
-  git init
+  if [[ ! -d ~/dotfiles/.git ]]; then
+    git init
+  fi
   # As stated in this guide (https://codingkilledthecat.wordpress.com/2012/08/08/git-dotfiles-and-hardlinks/),
   # it's better to link the files from inside the repo outside of it.
   cd ~

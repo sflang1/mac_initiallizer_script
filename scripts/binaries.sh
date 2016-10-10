@@ -79,7 +79,7 @@ brew install ${binaries[@]}
 show_status "Installing brew binaries" "$?"
 set -e # revert back to errors aborting the entire script
 # Installing DVM through cURL. It looks like brew recipe is not working well.
-if [[ !-d ~/.dvm ]]; then
+if [[ ! -d ~/.dvm ]]; then
   curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
 fi
 # Remove outdated versions from the cellar

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 main(){
   # Install Rubyenv for managing the Ruby versions
   # First of all, check if Git is installed

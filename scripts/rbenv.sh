@@ -53,8 +53,6 @@ main(){
 
   done
 
-  # Just in case, rbenv rehash
-  rbenv rehash
   ################################ RBENV INSTALLATION ################################
   # Rbenv not installed
   # OLD INSTALLATION PROCESS. DEPRECATED FOR RBENV INSTALLER

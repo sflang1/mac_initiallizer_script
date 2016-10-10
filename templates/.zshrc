@@ -1,5 +1,6 @@
-# Zplug configuration
-export ZPLUG_HOME=/usr/local/opt/zplug
+# Zplug configuration.
+# Zplug is installed in this directory whenever its installed through curl, instead of brew.
+export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
 # Zplug themes

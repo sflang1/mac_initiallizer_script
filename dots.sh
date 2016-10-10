@@ -25,8 +25,16 @@ esac
 sh scripts/apps.sh
 # Do some configurations for security checks
 # sh scripts/security.sh
-# Setting the Ruby environment
-sh scripts/rbenv.sh
+# Setting the Ruby environment and other development tools. Check first
+# if git is installed, it's a requirement for the following installations.
+if [[ ! $(which git) ]]; then
+  echo "Git is not installed. It is not possible to install Rbenv, nodenv, and other package managers"
+else
+  sh scripts/rbenv.sh
+  sh scripts/nodenv.sh
+  sh scripts/phantomenv.sh
+  sh scripts/pgvm.sh
+fi
 # Create the dotfiles directory and run the necessary tasks
 zsh scripts/dotfiles_configuration.sh
 

@@ -22,6 +22,7 @@ case $confirmation in
     ;;
 esac
 # Install some apps through Brew. This includes chrome, skype, atom, etc.
+brew cask install iterm2
 # sh scripts/apps.sh
 # Do some configurations for security checks
 # sh scripts/security.sh
@@ -34,7 +35,6 @@ else
   set +e
   sh scripts/rbenv.sh
   set -e
-  echo 'Exiting rbenv install script. Going to the others.'
   sh scripts/nodenv.sh
   sh scripts/phantomenv.sh
   sh scripts/pgvm.sh
@@ -43,9 +43,9 @@ fi
 zsh scripts/dotfiles_configuration.sh
 
 # Install a ruby default version (Mac has his own, in any case)
-# rbenv install 2.3.1
+rbenv install 2.3.1
 # # Set this version as global
-# rbenv global 2.3.1
+rbenv global 2.3.1
 # # Install bundler
 # gem install bundler
 # # Install rails

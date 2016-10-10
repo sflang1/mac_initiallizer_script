@@ -5,7 +5,7 @@ main(){
   brew install zsh zsh-completions
 
   # Install zplug, the manager of plugins we will use.
-  brew install zplug
+  curl -sL zplug.sh/installer | zsh
 
   # Update the zsh console manually to run zsh
   # First of all, add to the allowed shells

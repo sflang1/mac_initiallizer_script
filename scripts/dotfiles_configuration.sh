@@ -12,8 +12,11 @@ main()
   # Do a symlink between every file in the dotfiles directory and the home directory
   for f in ~/dotfiles/.[^.]*
   do
-    # Create a symlink between this file and the file in the HOME directory
-    ln -s $f ~/$(basename $f)
+    # If the file doesn't exists, do the symlink.
+    if [[ ! -e ~/$(basename $f) ]]; then
+      # Create a symlink between this file and the file in the HOME directory
+      ln -s $f ~/$(basename $f)
+    fi
   done
   # For some reason, a git repo is created at ~ directory. Remove it:
   rm ~/.git

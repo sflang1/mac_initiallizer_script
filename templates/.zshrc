@@ -28,12 +28,13 @@ zplug "lib", from:oh-my-zsh
 
 # Install missing plugins
 if ! zplug check --verbose; then
-  read -p "Do you want to install these packages? [y/n] " confirmation
+  local confirmation=$1
+  vared -p 'Do you wish to install these packages? [y/n]?' -c confirmation
   case $confirmation in
     [Yy]* )
       echo; zplug install
       ;;
-  esac
+    esac
 fi
 
 # Load the plugins in the terminal

@@ -30,8 +30,10 @@ esac
 if [[ ! $(which git) ]]; then
   echo "Git is not installed. It is not possible to install Rbenv, nodenv, and other package managers"
 else
-  source '$SHELL_LIBRARY_PATH/debug_stacktrace.sh'
+  # Set the +e because rbenv (installing with Ruby Installer) exits and finishes the whole script
+  set +e
   sh scripts/rbenv.sh
+  set -e
   echo 'Exiting rbenv install script. Going to the others.'
   sh scripts/nodenv.sh
   sh scripts/phantomenv.sh

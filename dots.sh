@@ -22,7 +22,7 @@ case $confirmation in
     ;;
 esac
 # Install some apps through Brew. This includes chrome, skype, atom, etc.
-sh scripts/apps.sh
+# sh scripts/apps.sh
 # Do some configurations for security checks
 # sh scripts/security.sh
 # Setting the Ruby environment and other development tools. Check first
@@ -31,6 +31,7 @@ if [[ ! $(which git) ]]; then
   echo "Git is not installed. It is not possible to install Rbenv, nodenv, and other package managers"
 else
   sh scripts/rbenv.sh
+  echo 'Exiting rbenv install script. Going to the others.'
   sh scripts/nodenv.sh
   sh scripts/phantomenv.sh
   sh scripts/pgvm.sh

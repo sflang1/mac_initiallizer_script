@@ -57,7 +57,7 @@ binaries=(
   # phantomenv          # PhantomJS version manager (rbenv for phantomjs) # better to just enabled on its own
   jenv                # java version manager (rbenv for java) [javas must be manually added]
   qt                  # qt lib
-  imagemagick         # watch out for graphicsmagick possible conflicts with executables, http://www.graphicsmagick.org/utilities.html
+  # imagemagick         # watch out for graphicsmagick possible conflicts with executables, http://www.graphicsmagick.org/utilities.html
   pkgconfig           # or pkg-config? is an utility that reads metadata in order to correctly install components at compile time (gcc)
   # graphicsmagick      # imagemagick alternative, provides some of the same executables
   # docker              # The docker client.
@@ -79,7 +79,9 @@ brew install ${binaries[@]}
 show_status "Installing brew binaries" "$?"
 set -e # revert back to errors aborting the entire script
 # Installing DVM through cURL. It looks like brew recipe is not working well.
-curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
+if [[ !-d ~/.dvm ]]; then
+  curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
+fi
 # Remove outdated versions from the cellar
 brew cleanup
 

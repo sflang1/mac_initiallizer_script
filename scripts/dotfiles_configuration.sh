@@ -39,6 +39,16 @@ main()
   if [[ ! -d $(nodenv root)/plugins/node-build ]]; then
     git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
   fi
+
+  # Add default gems to the rbenv configuration
+  default_gems=(
+    bundler
+    pry
+  )
+  for gem_name in $default_gems[@]
+  do
+    echo $gem_name >> $(rbenv root)/default-gems
+  done
 }
 
 script_exec_dir=$(dirname $0)

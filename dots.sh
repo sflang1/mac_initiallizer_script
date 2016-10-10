@@ -42,15 +42,6 @@ fi
 # Create the dotfiles directory and run the necessary tasks
 zsh scripts/dotfiles_configuration.sh
 
-# Install a ruby default version (Mac has his own, in any case)
-rbenv install 2.3.1
-# # Set this version as global
-rbenv global 2.3.1
-# # Install bundler
-# gem install bundler
-# # Install rails
-# gem install rails
-
 read -p "Most of the scripts run require a restart of the system. Do you wish to restart now? [y/n] " confirmation
 case $confirmation in
   [Yy]* )

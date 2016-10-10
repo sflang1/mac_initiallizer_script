@@ -6,14 +6,20 @@ set -eu   # Make that the errors in every script stop the execution of the gener
 
 # First of all, install brew and some other required installers (core-utils also for the realpath, etc.)
 sh scripts/binaries.sh
+
 # Put some defaults related to the environment
 export dirname=$(dirname $(realpath $0))
 export lib="$dirname/lib"
 export SHELL_LIBRARY_PATH="$dirname/lib"
 sh scripts/defaults.sh
+
 # I think the first should be install ZSH and the plugin managers, in this case, we'll use
 # zPlug, can be found in: https://github.com/zplug/zplug
 sh scripts/install_zsh.sh
+
+# Git configuration (set the name and the email of the user.)
+sh scripts/git_configuration.sh
+
 # Add the ssh-key to the system
 read -p "Do you want to create a SSH key for this PC? [y/n] " confirmation
 case $confirmation in
@@ -21,11 +27,14 @@ case $confirmation in
     sh scripts/ssh_add.sh
     ;;
 esac
+
 # Install some apps through Brew. This includes chrome, skype, atom, etc.
 brew cask install iterm2
 # sh scripts/apps.sh
+
 # Do some configurations for security checks
 # sh scripts/security.sh
+
 # Setting the Ruby environment and other development tools. Check first
 # if git is installed, it's a requirement for the following installations.
 if [[ ! $(which git) ]]; then
@@ -39,6 +48,7 @@ else
   sh scripts/phantomenv.sh
   sh scripts/pgvm.sh
 fi
+
 # Create the dotfiles directory and run the necessary tasks
 zsh scripts/dotfiles_configuration.sh
 

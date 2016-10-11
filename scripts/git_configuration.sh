@@ -31,5 +31,18 @@ main(){
     read -p "Introduce your email. This is mandatory. " email
   done
   git config --global user.email "$email"
+
+  # Configure the CRLF and LF automatically.
+  # First of all, a little explanation. Windows (DOS systems) and Unix systems manage
+  # the line endings in a different way. DOS uses a Carriage Return and Line Feed (CLRF),
+  # while Unix uses just Line Feed (LF). Whenever someone alternates between a project in
+  # DOS and Unix, the text editors change the line endings. Git offers a global configuration
+  # for avoiding this issue. You can also use a .gitattributes file in the repo you're
+  # creating with the appropiate configuration.
+  # The options for the global configuration are
+  # true - If you want that your line endings are automatically translated from LF to CLRF (specially for Windows)
+  # input - If you want that your line endings are translated from CLRF to LF, but not the other way (specially for Mac)
+  # false - If you don't want that any line endings are translated.
+  git config --global core.autocrlf input
 }
 main "$@"

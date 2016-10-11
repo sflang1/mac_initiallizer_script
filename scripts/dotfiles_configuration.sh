@@ -12,10 +12,10 @@ main()
   case $confirmation in
     [Yy]*)
       local url=''
-      vared -p 'Introduce the URL of the repository: ' -c url
       mkdir ~/tmp_dotfiles
       cd ~/tmp_dotfiles
       local exit_code=1
+      vared -p 'Introduce the URL of the repository: ' -c url
       while [[ exit_code != 0 ]]
       do
         git clone $url
@@ -27,6 +27,7 @@ main()
           export source_directory=$(realpath .)
         else
           echo "The git clone command was not successful with the URL provided. Please, check the URL or the permissions"
+          vared -p 'Introduce the URL of the repository: ' -c url
         fi
       done
       ;;

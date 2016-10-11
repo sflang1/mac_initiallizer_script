@@ -12,7 +12,9 @@ main()
   case $confirmation in
     [Yy]*)
       local url=''
-      mkdir ~/tmp_dotfiles
+      if [[ !-d ~/tmp_dotfiles ]]; then
+        mkdir ~/tmp_dotfiles
+      fi
       cd ~/tmp_dotfiles
       local exit_code=1
       vared -p 'Introduce the URL of the repository: ' -c url
@@ -35,16 +37,19 @@ main()
       export source_directory=$script_exec_dir/../templates/
       ;;
   esac
+
+  # Copy idempotently the files from the source directory to the dotfiles
   for f in $source_directory/.[^.]*
   do
-    # Copy idempotently the files from the templates directory to the dotfiles
     if [[ ! -e ~/dotfiles/$(basename $f) ]]; then
       cp $(basename $f) ~/dotfiles
     fi
   done
-  cp $script_exec_dir/../templates/.[^.]* ~/dotfiles     # Copy the contents to the newly created directory
 
-  #
+  # Remove the temporary file that we've created
+  rm -rf ~/tmp_dotfiles
+
+  # Symlinking and creating the repository in this place.
   cd ~/dotfiles           # Initiallize a git repo in this directory
   if [[ ! -d ~/dotfiles/.git ]]; then
     git init

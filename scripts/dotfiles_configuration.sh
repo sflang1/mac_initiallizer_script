@@ -25,11 +25,11 @@ main()
           echo "Files downloaded successfully."
           cd $(echo $(ls))  # Enter the directory
           export source_directory=$(realpath .)
-          ;;
         else
           echo "The git clone command was not successful with the URL provided. Please, check the URL or the permissions"
         fi
       done
+      ;;
     [Nn]*)
       export source_directory=$script_exec_dir/../templates/
       ;;

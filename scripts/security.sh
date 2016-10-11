@@ -28,3 +28,7 @@ show_status "  Stealth mode enabled (computer does not broadcast itself to the n
 
 # echo "Privacy settings for OS X" # Skipped, was read
 # curl -O https://fix-macosx.com/fix-macosx.py && /usr/bin/python fix-macosx.py
+
+# Hosts configuration. Download the adware+gambling+porn hosts that are in:
+# https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts
+sudo sh -c "curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts > /etc/hosts"

@@ -33,7 +33,7 @@ brew cask install iterm2
 # sh scripts/apps.sh
 
 # Do some configurations for security checks
-# sh scripts/security.sh
+sh scripts/security.sh
 
 # Setting the Ruby environment and other development tools. Check first
 # if git is installed, it's a requirement for the following installations.

@@ -9,7 +9,7 @@ main()
   # Choosing a source for the dotfiles.
   local confirmation=''
   vared -p 'Do you want to obtain the dotfiles from a repository from your own? ' confirmation
-  case $confirmation
+  case $confirmation in
     [Yy]*)
       local url=''
       vared -p 'Introduce the URL of the repository: ' -c url

@@ -1,11 +1,40 @@
 #!/usr/bin/env zsh
 main()
 {
-  # First of all, move all the templates in this script to a directory called dotfiles
+  # Create the dotfiles directory.
   if [[ ! -d ~/dotfiles ]]; then
     mkdir ~/dotfiles
   fi
-  for f in $script_exec_dir/../templates/.[^.]*
+
+  # Choosing a source for the dotfiles.
+  local confirmation=''
+  vared -p 'Do you want to obtain the dotfiles from a repository from your own? ' confirmation
+  case $confirmation
+    [Yy]*)
+      local url=''
+      vared -p 'Introduce the URL of the repository: ' -c url
+      mkdir ~/tmp_dotfiles
+      cd ~/tmp_dotfiles
+      local exit_code=1
+      while [[ exit_code != 0 ]]
+      do
+        git clone $url
+        exit_code=$?
+        if [[ exit_code == 0 ]]; then
+          # Successful git clone.
+          echo "Files downloaded successfully."
+          cd $(echo $(ls))  # Enter the directory
+          export source_directory=$(realpath .)
+          ;;
+        else
+          echo "The git clone command was not successful with the URL provided. Please, check the URL or the permissions"
+        fi
+      done
+    [Nn]*)
+      export source_directory=$script_exec_dir/../templates/
+      ;;
+  esac
+  for f in $source_directory/.[^.]*
   do
     # Copy idempotently the files from the templates directory to the dotfiles
     if [[ ! -e ~/dotfiles/$(basename $f) ]]; then
@@ -13,6 +42,8 @@ main()
     fi
   done
   cp $script_exec_dir/../templates/.[^.]* ~/dotfiles     # Copy the contents to the newly created directory
+
+  #
   cd ~/dotfiles           # Initiallize a git repo in this directory
   if [[ ! -d ~/dotfiles/.git ]]; then
     git init

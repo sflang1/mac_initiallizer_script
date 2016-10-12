@@ -34,7 +34,10 @@ main()
       done
       ;;
     [Nn]*)
-      export source_directory=$script_exec_dir/../templates/
+      echo 'Using the default dotfiles from https://github.com/codescrum/dotfiles/'
+      git clone https://github.com/codescrum/dotfiles/
+      cd $(echo $(ls))
+      export source_directory=$(realpath .)
       ;;
   esac
 

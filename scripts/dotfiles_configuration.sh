@@ -9,13 +9,13 @@ main()
   # Choosing a source for the dotfiles.
   local confirmation=''
   vared -p 'Do you want to obtain the dotfiles from a repository from your own? ' confirmation
+  local url=''
+  if [[ ! -d ~/tmp_dotfiles ]]; then
+    mkdir ~/tmp_dotfiles
+  fi
+  cd ~/tmp_dotfiles
   case $confirmation in
     [Yy]*)
-      local url=''
-      if [[ !-d ~/tmp_dotfiles ]]; then
-        mkdir ~/tmp_dotfiles
-      fi
-      cd ~/tmp_dotfiles
       local exit_code=1
       vared -p 'Introduce the URL of the repository: ' -c url
       while [[ exit_code != 0 ]]
@@ -36,6 +36,7 @@ main()
     [Nn]*)
       echo 'Using the default dotfiles from https://github.com/codescrum/dotfiles/'
       git clone https://github.com/codescrum/dotfiles/
+      echo "Files downloaded successfully"
       cd $(echo $(ls))
       export source_directory=$(realpath .)
       ;;
